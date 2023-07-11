@@ -4,19 +4,15 @@
     <title>PRIME blog</title>
 </head>
 <body>
-    <h1>PRIME blog</h1>
+    <h1><a href="/">PRIME blog</a></h1>
     <h2>A webpage made with Django</h2>
     
-    <article>
-        <h3>Article #1</h3>
-        <time>published: 07.11.2023</time>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    </article>
-
-    <article>
-        <h3>Article #2</h3>
-        <time>published: 07.11.2023</time>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-    </article>
+    {% for post in posts %}
+        <article>
+            <time>published: {{ post.published_date }}</time>
+            <h3><a href="/">{{ post.title }}</a></h3>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
 </body>
 </html>
